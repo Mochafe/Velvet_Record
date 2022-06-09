@@ -16,8 +16,8 @@
     <title>Nouveau Disque</title>
 </head>
 <body>
-    <form action="script_disc_ajout.php" method="post" enctype="multipart/form-data" class="container">
-        <h1>Ajouter un vinyle</h1>
+    <form action="script_disc_ajout.php" method="post" class="container">
+        <h1 class="mt-5">Ajouter un vinyle</h1>
 
         <label for="title" class="form-label mt-3">Title</label>
         <input type="text" name="title" id="title" placeholder="Enter title" class="form-control">

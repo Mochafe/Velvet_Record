@@ -33,7 +33,7 @@
                     <h5>Year : </h5><?= $disc->disc_year ?>
                     <h5>Genre : </h5><?= $disc->disc_genre ?>
 
-                    <a href="disc_detail?id=<?= $disc->disc_id ?>" class="btn btn-primary d-block mt-3 w-25">Détails</a>
+                    <a href="disc_detail.php?disc_id=<?= $disc->disc_id ?>" class="btn btn-primary d-block mt-3 w-25">Détails</a>
                 </div>
             <?php endforeach; ?>
         </div>
