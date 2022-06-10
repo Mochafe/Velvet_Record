@@ -13,13 +13,12 @@
 
     $picture = (isset($_FILES["picture"]["name"]) && $_FILES["picture"]["name"] != "") ? $_FILES["picture"] : null;
 
-    move_uploaded_file($picture["tmp_name"], "./img/" . $picture["name"]);
-
-
     if($title == null  || $artist_id == null || $year == null || $genre == null || $price == null || $picture == null || $label == null) {
         header("Location: disc_new.php");
         exit;
     }
+
+    move_uploaded_file($picture["tmp_name"], "./img/" . $picture["name"]);
 
     require("db.php");
     $db = ConnexionBase();

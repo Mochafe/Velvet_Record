@@ -15,7 +15,7 @@
 
     $requete->closeCursor();
 
-    $requete = $db->prepare("SELECT * FROM artist WHERE artist_id != (:artist_id)");
+    $requete = $db->prepare("SELECT * FROM artist WHERE artist_id != :artist_id");
 
     $requete->bindValue(":artist_id", $disc_detail["artist_id"], PDO::PARAM_INT);
 
@@ -35,12 +35,12 @@
     <title>Modifier un vinyle</title>
 </head>
 <body>
-<form class="container" action="script_disc_modif.php" method="POST">
+<form class="container" action="script_disc_modif.php" enctype="multipart/form-data" method="POST">
     <h1 class="mt-5">Modifier un vinyle</h1>
         <div class="row">
             <div class="col-12 mt-3">
                 <label class="form-label">Title</label>
-                <input class="form-control" type="text" value="<?php echo($disc_detail["disc_title"]); ?>">
+                <input name="title" id="title" class="form-control" type="text" value="<?php echo($disc_detail["disc_title"]); ?>">
             </div>
             <div class="col-12 mt-3">
                 <label class="form-label">Artist</label>
@@ -53,21 +53,21 @@
             </div>
             <div class="col-12 mt-3">
                 <label class="form-label">Year</label>
-                <input class="form-control" type="text" value="<?php echo($disc_detail["disc_year"]); ?>">
+                <input name="year" id="year" class="form-control" type="text" value="<?php echo($disc_detail["disc_year"]); ?>">
             </div>
             <div class="col-12 mt-3">
                 <label class="form-label">Genre</label>
-                <input class="form-control" type="text" value="<?php echo($disc_detail["disc_genre"]); ?>">
+                <input name="genre" id="genre" class="form-control" type="text" value="<?php echo($disc_detail["disc_genre"]); ?>">
             </div>
             <div class="col-12 mt-3">
                 <label class="form-label">Label</label>
-                <input class="form-control" type="text" value="<?php echo($disc_detail["disc_label"]); ?>">
+                <input name="label" id="label" class="form-control" type="text" value="<?php echo($disc_detail["disc_label"]); ?>">
             </div>
             <div class="col-12 mt-3">
                 <label class="form-label">Price</label>
 
                 <div class="input-group">
-                    <input class="form-control" type="text" value="<?php echo($disc_detail["disc_price"]); ?>">
+                    <input name="price" id="price" class="form-control" type="text" value="<?php echo($disc_detail["disc_price"]); ?>">
                     <span class="input-group-text">$</span>
                 </div>
                 
@@ -77,6 +77,8 @@
                 <input type="file" name="picture" id="picture" class="form-control">
                 <img src="img/<?php echo($disc_detail["disc_picture"]); ?>" class="w-100">
             </div>
+
+            <input type="hidden" name="disc_id" id="disc_id" value="<?php echo($disc_detail["disc_id"]) ?>">
         </div>
         <div class="my-4">
             <input type="submit" value="Modifier" class="btn btn-primary">

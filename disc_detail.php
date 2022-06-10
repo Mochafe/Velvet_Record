@@ -59,13 +59,29 @@
         </div>
         <div class="my-4">
             <a href="disc_form.php?disc_id=<?php echo($disc_id); ?>" class="btn btn-primary">Modifier</a>
-            <a href="script_disc_delete.php?disc_id=<?php echo($disc_id); ?>" class="btn btn-primary">Supprimer</a>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-delete">Supprimer</button>
             <a href="discs.php" class="btn btn-primary">Retour</a>
-        </div>
-        
-
+        </div>       
     </div>
     
+    <div class="modal fade" id="modal-delete" tabindex="-1" aria-labelledby="modal-delete-label" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title" id="modal-delete-label">Supprimer</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h3>Voulez vous vraiment supprimer ce disque ?</h3>
+      </div>
+      <div class="modal-footer">
+        <a href="script_disc_delete.php?disc_id=<?php echo($_GET["disc_id"]) ?>" class="btn btn-danger">Supprimer</a>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Retour</button>  
+      </div>
+    </div>
+  </div>
+</div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
